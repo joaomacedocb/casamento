@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Casamento - Adrielly & João</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+<style>
+
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* PALETA */
+:root {
+    --olive: #5f7854;
+    --paper: #F4EFEA;
+    --text: #2F3A1F;
+    --backcoloroff: #647757;
+
+    --space-xs: 8px;
+    --space-sm: 16px;
+    --space-md: 24px;
+    --space-lg: 32px;
+}
+
+/* BODY */
+body {
+    min-height: 100vh;
+    background: var(--backcoloroff);
+    font-family: 'Montserrat', sans-serif;
+    color: var(--text);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-md);
+
+    position: relative;
+    overflow-x: hidden;
+
+    opacity: 0;
+    transform: translateY(15px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+body.loaded {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.invitation::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background-image: url("texture.png");
+    background-size: cover;
+    background-position: center;
+
+    opacity: 1;
+    mix-blend-mode: multiply;
+
+    pointer-events: none;
+}
+
+/* CONVITE (ARCO BRANCO) */
+.invitation {
+    position: relative;
+    z-index: 1;
+
+    max-width: 560px;
+    width: 100%;
+
+    background: var(--paper);
+    border-radius: 280px 280px 0 0;
+
+    padding: 10rem 4rem 8rem 4rem;
+
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-md);
+
+    box-shadow: 0 25px 60px rgba(0,0,0,0.15);
+
+    overflow: hidden; /* 👈 ISSO É O SEGREDO */
+}
+
+.invitation > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* LOGO */
+.monogram {
+    max-height: 8rem;
+    opacity: 0.9;
+    mix-blend-mode: multiply;
+}
+
+/* TEXTOS */
+.invite-text {
+    color: gray;
+    font-size: 18px;
+}
+
+.date {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--olive);
+}
+
+.date-format {
+    display: block;
+    font-size: 1.4rem;
+    font-family: 'Playfair Display', serif;
+    margin-bottom: var(--space-xs);
+}
+
+.location {
+    font-style: normal;
+    font-size: 15px;
+    line-height: 1.2;
+    opacity: 0.9;
+}
+
+.location strong {
+    display: block;
+    margin: var(--space-xs) 0;
+}
+
+/* AÇÕES */
+.actions {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-sm);
+    width: 100%;
+    margin-top: var(--space-sm);
+}
+
+.actions a {
+    text-decoration: none;
+    color: var(--text);
+    font-size: 13px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+
+    transition: transform 0.2s ease;
+}
+
+.actions i {
+    font-size: 26px;
+    color: var(--olive);
+}
+
+.actions a:hover {
+    transform: translateY(-3px);
+}
+
+/* CTA */
+.cta {
+    font-size: 13px;
+    letter-spacing: 1.3px;
+    opacity: 0.6;
+}
+
+/* MOBILE */
+@media (max-width: 480px) {
+
+    body {
+        padding: 12px;
+    }
+
+    .invitation {
+        padding: 6rem 2rem;
+        border-radius: 200px 200px 0 0;
+    }
+
+    .invite-text,
+    .date {
+        font-size: 16px;
+    }
+
+    .actions {
+        margin-top: 2rem;
+        gap: var(--space-xs);
+    }
+
+    .actions i {
+        font-size: 28px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<main class="invitation">
+
+    <p class="invite-text">
+        Adri & João<br>convidam para o seu casamento
+    </p>
+
+    <img src="logo2.png" alt="Monograma Adrielly e João" class="monogram">
+
+    <p class="invite-text">
+        Venha comemorar o amor conosco
+    </p>
+
+    <p class="date">
+        <strong class="date-format">30 • Abril • 2026</strong>
+        Quinta às 20h
+    </p>
+
+    <address class="location">
+        Cerimônia e recepção:
+        <strong>Love Festas</strong>
+        São Leopoldo – RS
+    </address>
+
+    <nav class="actions">
+        <a href="https://maps.app.goo.gl/ur3tkDHa5MAWZqvaA" target="_blank">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Localização</span>
+        </a>
+        <a href="#">
+            <i class="fa-solid fa-check"></i>
+            <span>Confirmar presença</span>
+        </a>
+        <a href="#">
+            <i class="fa-solid fa-gift"></i>
+            <span>Presente</span>
+        </a>
+    </nav>
+
+    <p class="cta">Toque para interagir</p>
+
+</main>
+
+<script>
+window.addEventListener("load", () => {
+    document.body.classList.add("loaded");
+});
+</script>
+
+</body>
+</html>

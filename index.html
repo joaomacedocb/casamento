@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Adrielly & João - Convite</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;400&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --olive: #6B7D3A;
+    --olive-dark: #4F5D2F;
+    --paper: #F4EFEA;
+    --text: #2F3A1F;
+    --backcoloroff: #647757;
+}
+
+body {
+    min-height: 100vh;
+    background-color: var(--paper);
+    background-image: url("texture.png");
+    background-repeat: repeat;
+    background-size: 600px 600px;
+
+    font-family: 'Montserrat', sans-serif;
+    color: var(--text);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 32px 16px;
+
+    opacity: 0;
+    transform: translateY(15px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+body.loaded {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.home-container {
+    text-align: center;
+    max-width: 600px;
+    width: 100%;
+}
+
+.envelope-link {
+    display: inline-block;
+    text-decoration: none;
+}
+
+.envelope-img {
+    max-width: 400px;
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+    filter: drop-shadow(0 12px 20px rgba(0,0,0,0.15));
+    transition: transform 0.3s ease;
+}
+
+.envelope-img:hover {
+    transform: scale(1.03);
+}
+
+.open-text {
+    margin-top: 0px;
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    letter-spacing: 1px;
+    color: var(--olive);
+    opacity: 0.9;
+}
+
+@media (max-width: 480px) {
+    .envelope-img {
+        max-width: 480px;
+    }
+
+    .open-text {
+        font-size: 16px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<main class="home-container">
+    <a href="convite.html" class="envelope-link">
+        <img src="envelope.png" alt="Envelope do convite de casamento" class="envelope-img">
+    </a>
+
+    <p class="open-text">
+        Toque no selo para abrir
+    </p>
+</main>
+
+<script>
+window.addEventListener("load", () => {
+    document.body.classList.add("loaded");
+});
+
+document.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", function(e) {
+        e.preventDefault();
+        const href = this.getAttribute("href");
+
+        document.body.classList.remove("loaded");
+
+        setTimeout(() => {
+            window.location.href = href;
+        }, 400);
+    });
+});
+</script>
+
+</body>
+</html>
