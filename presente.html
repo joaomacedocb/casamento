@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Presente - Adrielly & João</title>
+
+<!-- GOOGLE FONTS -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+
+<!-- FONT AWESOME -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+<style>
+
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* PALETA */
+:root {
+    --olive: #5f7854;
+    --paper: #ffffff;
+    --text: #6e6e6e;
+}
+
+/* BODY */
+body {
+    min-height: 100vh;
+    background-color: var(--paper);
+    background-image: url("texture.png");
+    background-repeat: repeat;
+    background-size: 600px 600px;
+
+    font-family: 'Montserrat', sans-serif;
+    color: var(--text);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 32px 28px;
+
+    opacity: 0;
+    transform: translateY(15px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+body.loaded {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* CONTAINER */
+.container {
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+}
+
+/* LOGO */
+.logo {
+    width: 140px;
+    height: auto;
+    object-fit: contain;
+    opacity: 0.9;
+}
+
+/* TEXTO */
+.description {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* QR CODE */
+.qrcode {
+    max-width: 260px;
+    width: 100%;
+}
+
+/* BOTÕES MINIMALISTAS */
+.buttons-group {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    width: 100%;
+}
+
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    background: transparent;
+    border: none;
+
+    padding: 10px 4px;
+    font-size: 14px;
+    color: var(--olive);
+
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.button i {
+    font-size: 14px;
+}
+
+.button:hover {
+    border-bottom: 1px solid var(--olive);
+    transform: translateY(-1px);
+}
+
+/* MOBILE */
+@media (max-width: 480px) {
+
+    .description {
+        font-size: 14px;
+    }
+
+    .qrcode {
+        max-width: 220px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<main class="container">
+
+    <img src="logo4.png" alt="Monograma Adrielly e João" class="logo">
+
+    <p class="description">
+        A sua presença já é o nosso maior presente! <br>
+        Mas se desejar nos presentear, ficaremos felizes em receber uma contribuição em valores.
+    </p>
+
+    <img src="qrcode.jpeg" alt="QR Code PIX" class="qrcode">
+
+    <div class="buttons-group">
+        <p class="description">Chave PIX: 51 997590334</p>
+     <button class="button" onclick="copyPix()">
+            <i class="fa-regular fa-copy"></i>
+            <span>Toque para copiar a chave PIX</span>
+        </button>
+
+        <button class="button" onclick="goBack()">
+            <i class="fa-solid fa-arrow-left"></i>
+            <span>Voltar para o convite</span>
+        </button>
+
+    </div>
+
+</main>
+
+<script>
+
+window.addEventListener("load", () => {
+    document.body.classList.add("loaded");
+});
+
+const pixKey = "00020126460014br.gov.bcb.pix0124adrielly1996@hotmail.com5204000053039865802BR5915ADRIELLYDEALVES6009Sao Paulo610901227-20062230519daqr3934448720996376304520D";
+
+function copyPix() {
+    navigator.clipboard.writeText(pixKey).then(() => {
+        alert("Chave PIX copiada com sucesso!");
+    });
+}
+
+function goBack() {
+    window.location.href = "convite.html";
+}
+
+</script>
+
+</body>
+</html>
