@@ -21,9 +21,8 @@
 :root {
     --olive: #5f7854;
     --paper: #F4EFEA;
-    --text: gray;
     --backcoloroff: #647757;
-
+    --text: rgb(89, 89, 89);
     --space-xs: 8px;
     --space-sm: 16px;
     --space-md: 24px;
@@ -109,8 +108,8 @@ body.loaded {
 
 /* TEXTOS */
 .invite-text {
-    color: gray;
     font-size: 18px;
+    color: var(--text);
 }
 
 .date {
@@ -131,6 +130,7 @@ body.loaded {
     font-size: 15px;
     line-height: 1.2;
     opacity: 0.9;
+    color: var(--text);
 }
 
 .location strong {
@@ -236,7 +236,7 @@ body.loaded {
             <i class="fa-solid fa-location-dot"></i>
             <span>Localização</span>
         </a>
-        <a href="#">
+        <a href="https://api.whatsapp.com/send/?phone=555194638138" target="_blank">
             <i class="fa-solid fa-check"></i>
             <span>Confirmar presença</span>
         </a>
